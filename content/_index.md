@@ -3,11 +3,9 @@ title = "Home"
 date = 2019-05-24T21:15:40+02:00
 weight = 5
 chapter = false
-pre = "<i class='fa ela-page'></i> "
+pre = ""
 alwaysopen = false
 +++
-
-{{< todo "See what's in there and import content: https://www.cyberrepublic.org/experimental-docs/#/" >}}
 
 # Elastos documentation
 
@@ -19,22 +17,50 @@ Here is where you can start:
 
 ## Discover
 
-Just arrived? Not sure what Elastos is yet? Make sure to read {{< internallink "what is Elastos?" "concepts/what_is_elastos/_index.md" >}} to get some background.
+Just arrived? Not sure what Elastos is yet? Make sure to read {{< internallink "what is Elastos?" "discover_elastos/what_is_elastos/_index.md" >}} to get some background.
 
 ## Start with Elastos
 
 * App developer
-    * {{< internallink "Build Your first DApp" "quickstart/quickstart.md" >}}
+    * {{< internallink "Setup Elastos core services" "elastos_core_services/setup/_index.md" >}} first (you **don't** need to read the Elastos blockchain section yet if you're new to Elastos), then try a few {{< internallink "samples" "elastos_core_services/samples/_index.md">}} and start reading our {{< internallink "core services guides" "elastos_core_services/guides/_index.md" >}}.
 * Miner
-    * {{< internallink "Mine ELA" "connect_to_elastos/mine_and_secure/merged_mining.md" >}}
-    * {{< internallink "Run your own supernode" "connect_to_elastos/mine_and_secure/supernode.md" >}}
+    * {{< internallink "Mine ELA" "elastos_blockchain/connect_to_elastos/mine_and_secure/merged_mining.md" >}}
+    * {{< internallink "Run your own supernode" "elastos_blockchain/connect_to_elastos/mine_and_secure/supernode.md" >}}
 * Crypto exchange
-    * {{< internallink "Connect to the ELA main chain" "/connect_to_elastos/exchanges/_index.md" >}}
+    * {{< internallink "Connect to the ELA main chain" "elastos_blockchain/connect_to_elastos/exchanges/_index.md" >}}
+
+More advanced Elastos developers may want to directly talk to the Elastos mainchain and sidechains through RPC calls. The {{< internallink "Elastos blockchain section" "/elastos_blockchain/_index.md">}} is a good starting point.
 
 ## Contribute
 So you love Elastos and would like to bring your best skills to make it even better? Here is how to {{< internallink "contribute to the platform" "contribute/_index.md" >}}  with hundreds of other great developers.
 
-## Partnerships
-{{< todo "Partnerships" >}}
+## Modules status
 
-{{< todo "Convert this page to .html to be able to build complex layout, according to the designer's requirements, and after we all agree on the home page content" >}}
+Elastos is being actively developed. You may wonder what you can actually do yet with each module. Here is a brief list (not exhaustive):
+
+(**Updated**: 2019-08-15)
+
+### Blockchains
+
+| Module | Status |
+| ------ | ------ |
+| ELA mainchain | Fully operational. Used directly by wallet apps or low level projects, but not by application developers. |
+| DID sidechain | Rework in progress to match W3C specifications on DID and verifiable credentials. |
+| Ethereum sidechain | Available on testnet/mainnet, but can only be used by a small list of early testers (ex: DMA). RPC API only for now, not helper library. |
+| Token sidechain | Almost ready on testnet and mainnet. RPC API available. |
+
+### Core services
+
+| Module | Status |
+| ------ | ------ |
+| Hive | Available for C++, android, ios, trinity. Ability to write and read files on both IPFS and Onedrive. Developments on going. |
+| Carrier | Available and rather stable for C++, android, ios, trinity. |
+| Elastos scheme | Not available yet. The Elephant wallet currently provides a scheme that can temporarily be used for tests, but this is not the final scheme. |
+| Trinity | DApps can run in sandboxed processes. Deployment and debug tools under construction. Android and iOS. Not published on app stores yet. Hive and carrier plugins available. |
+
+### Solutions
+
+| Module | Status |
+| ------ | ------ |
+| DMA | Alpha version available for a small set of developers. Demo apps Choosit and Uptick available. |
+| Hyperconnect IoT | Alpha version and tutorials available on the hyperconnect website. |

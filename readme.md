@@ -48,7 +48,7 @@ Shortcodes are hugo-specific ways to automatically generate html content easily.
 Shortcodes can be used in .md and .html files.
 
 ### Generate a simple internal link (secure - will check if page is missing)
-	{{< internallink "What is Elastos?" "concepts/what_is_elastos/_index.md" >}} 
+	{{< internallink "What is Elastos?" "discover_elastos/what_is_elastos/_index.md" >}} 
 
 ### Show an orange TODO box
     {{% notice todo %}}
@@ -127,6 +127,49 @@ Add this kind of code to your .md file header:
 
     tags = ["react native", "api"] 
 
+# About API references
+There are 2 ways to write API reference pages in this project:
+
+1. Manually using markdown and shortcodes, for example for REST APIs.
+1. By importing sphinx generated documentation as json into pages.
+
+## Embedding sphinx API references
+
+In order to get doxygen-like code documentation built into hugo, please do the following things:
+
+* Use sphinx to generate a json output for your code documentation
+
+> sphinx-build -b json source dest
+
+* Store the generated .fjson file in /data/reference/PLATFORM-OR-LANGUAGE/YOUR_PROJECT and rename it as .json
+* From any .md file you can now use the jsonapireference shortcode like this (in case you stored your file in /data/cpp/carrier/carrier-api.json):
+
+        {{< jsonapireference "cpp" "carrier" "carrier-api" >}}
+        
+* If more styling is required, edit elastos-theme.css
+* Recommended: write a script to automatize generation + importation from the root project into this documentation project.
+
+## Embedding complex external html API references
+In case it's not possible to smoothly integrate single page documentation using a tool like sphinx (that outputs json), we integrate externally generated docs in iframe the following way:
+
+* Generate your external api reference documentation using javadoc, appledoc, etc.
+* Copy the whole content to /static/references/your_folder
+* Create a new hugo doc page and add the following information to the hugo header without any other inner content in your .md file:
+
+   		+++
+	   	...
+   		iframedurl = "/references/your_folder/"
+		disableNextPrev = true
+		+++
+		
+## Opening html API references in a new tab
+In order to open a link in a new tab when clicking on a left menu item, the following header can be added:
+
+   		+++
+	   	...
+   		apireferenceexturl = "An_external_url or /references/internal_path_where_doc_is_stored"
+		+++
+
 # Contacts
 Make sure to discuss major changes with the following persons first:
 
@@ -136,3 +179,4 @@ Make sure to discuss major changes with the following persons first:
 | Carrier | Wechat: @stiartsly (Tang Zhilong) |
 | Hive | Wechat: @stiartsly (Tang Zhilong) |
 | Edition | Wechat: @XunDai |
+| Elastos CLI | Wechat: @BoCheng0000 (BoCheng) |
